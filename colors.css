@@ -1,13 +1,13 @@
 .grass{
-    background-color: green;
+    background-color: rgb(50, 196, 50);
 }
 
 .fire{
-    background-color: red;
+    background-color: rgb(187, 0, 0);
 }
 
 .water{
-    background-color: blue;
+    background-color: rgb(0, 0, 220);
 }
 
 .bug{
@@ -15,19 +15,19 @@
 }
 
 .normal{
-    background-color: grey;
+    background-color: rgb(172, 172, 172);
 }
 
 .poison{
-    background-color: purple;
+    background-color: rgb(159, 0, 159);
 }
 
 .electric{
-    background-color: yellow;
+    background-color: rgb(189, 189, 0);
 }
 
 .ground{
-    background-color: orange;
+    background-color: rgb(184, 119, 0);
 }
 
 .fairy{
@@ -35,5 +35,53 @@
 }
 
 .fighting{
-    background-color: brown;
+    background-color: rgb(168, 39, 39);
+}
+
+.flying{
+    background-color: skyblue;
+}
+
+.show_grass{
+    background-color: rgb(60, 225, 60);
+}
+
+.show_fire{
+    background-color: rgb(204, 0, 0);
+}
+
+.show_water{
+    background-color: rgb(0, 0, 255);
+}
+
+.show_bug{
+    background-color: rgb(0, 146, 0);
+}
+
+.show_normal{
+    background-color: rgb(192, 192, 192);
+}
+
+.show_poison{
+    background-color: rgb(178, 0, 178);
+}
+
+.show_electric{
+    background-color: rgb(216, 216, 0);
+}
+
+.show_ground{
+    background-color: rgb(206, 134, 0);
+}
+
+.show_fairy{
+    background-color: rgb(255, 205, 213);
+}
+
+.show_fighting{
+    background-color: rgb(189, 45, 45);
+}
+
+.show_flying{
+    background-color: skyblue;
 }
