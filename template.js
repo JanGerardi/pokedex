@@ -4,13 +4,13 @@ function pokedexTemplate(pokemon){
     return /*html*/`
             <div class="pokedexCard">
                 <div class="pokedexCardTop">
-                    <h3>${pokemon.name}</h3>
-                    <p class="pokemonId">${pokemon.id}</p>
+                    <h3>${toUppercase(pokemon.name)}</h3>
+                    <p class="pokemonId">${addHashtag(pokemon.id)}</p>
                 </div>
                 <div class="pokedexCardBottom">
                     <div>
-                        <p>${type1}</p>
-                        ${type2 ? `<p>${type2}</p>` : ""}
+                        <p>${toUppercase(type1)}</p>
+                        ${type2 ? `<p>${toUppercase(type2)}</p>` : ""}
                     </div>
                     <img src="${pokemon.sprites.front_default}">
                 </div>

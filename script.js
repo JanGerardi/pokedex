@@ -20,3 +20,11 @@ async function renderRequest(currentRequest){
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
 }
+
+function toUppercase(text){
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function addHashtag(id){
+    return '#' + id;
+}

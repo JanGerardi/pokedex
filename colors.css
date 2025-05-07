@@ -1,0 +1,39 @@
+.grass{
+    background-color: green;
+}
+
+.fire{
+    background-color: red;
+}
+
+.water{
+    background-color: blue;
+}
+
+.bug{
+    background-color: green;
+}
+
+.normal{
+    background-color: grey;
+}
+
+.poison{
+    background-color: purple;
+}
+
+.electric{
+    background-color: yellow;
+}
+
+.ground{
+    background-color: orange;
+}
+
+.fairy{
+    background-color: pink;
+}
+
+.fighting{
+    background-color: brown;
+}
