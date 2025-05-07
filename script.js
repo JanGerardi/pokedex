@@ -13,7 +13,7 @@ async function renderRequest(currentRequest){
     let currentObject = currentRequest.results;
     let contentContainer = document.getElementById("pokedex");
     contentContainer.innerHTML = "";
-    for (let i = 0; i < currentObject.length; i++) {
+    for (let i = 0; i < 30; i++) {
         const currentPokemon = currentObject[i];
         let pokeDetailsResponse = await fetch(currentPokemon.url);
         let currentPokemonDetails = await pokeDetailsResponse.json();
