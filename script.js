@@ -53,9 +53,11 @@ async function renderDetails(pokemonId){
     let currentRequest = await response.json();
     let contentContainer = document.getElementById("pokedexDetails");
     contentContainer.innerHTML = pokedexDetailsTemplate(currentRequest);
+    document.body.style.overflow = 'hidden';
 }
 
 function closeOverlay(){
-    let overlay = document.getElementById("overlay");
-    overlay.classList.add(d_none);
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
 }
