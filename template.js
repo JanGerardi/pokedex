@@ -21,9 +21,10 @@ function pokedexDetailsTemplate(pokemon){
     const type1 = pokemon.types[0]?.type.name || "";
     const type2 = pokemon.types[1]?.type.name || "";
     return /*html*/`
+        <div onclick="closeOverlay()" id="overlay">
             <div class="pokedexDetailsCard ${type1}">
                 <div class="pokedexDetailsCardTop">
-                    <h3>${toUppercase(pokemon.name)}</h3>
+                    <h2>${toUppercase(pokemon.name)}</h2>
                     <p class="pokemonId">${addHashtag(pokemon.id)}</p>
                 </div>
                 <div class="pokedexDetailsCardBottom">
@@ -34,9 +35,9 @@ function pokedexDetailsTemplate(pokemon){
                     <img src="${pokemon.sprites.front_default}">
                 </div>
                 <div class="pokedexDetailsCardInfo">
-                    <div>
-                        <a href="">About</a>
-                        <a href="">Base Stats</a>
+                    <div class="detailsMenu">
+                        <a href=""><b>About</b></a>
+                        <a href=""><b>Base Stats</b></a>
                     </div>
                     <div>
                         <table class="about">
@@ -77,5 +78,10 @@ function pokedexDetailsTemplate(pokemon){
                         </table>
                     </div>
                 </div>
-            </div>`
+                <div class="btn_container">
+                    <button class="btn_left">&#11164;</button>
+                    <button class="btn_right">&#11166;</button>
+                </div>
+            </div>
+        </div>`
 }

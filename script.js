@@ -54,3 +54,8 @@ async function renderDetails(pokemonId){
     let contentContainer = document.getElementById("pokedexDetails");
     contentContainer.innerHTML = pokedexDetailsTemplate(currentRequest);
 }
+
+function closeOverlay(){
+    let overlay = document.getElementById("overlay");
+    overlay.classList.add(d_none);
+}

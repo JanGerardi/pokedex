@@ -1,9 +1,9 @@
 .grass{
-    background-color: rgb(50, 196, 50);
+    background-color: rgb(48, 189, 48);
 }
 
 .fire{
-    background-color: rgb(187, 0, 0);
+    background-color: rgb(170, 0, 0);
 }
 
 .water{
@@ -35,7 +35,7 @@
 }
 
 .fighting{
-    background-color: rgb(168, 39, 39);
+    background-color: rgb(174, 41, 41);
 }
 
 .flying{
@@ -47,7 +47,7 @@
 }
 
 .show_fire{
-    background-color: rgb(195, 0, 0);
+    background-color: rgb(176, 0, 0);
 }
 
 .show_water{
