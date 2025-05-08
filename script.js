@@ -21,14 +21,6 @@ async function renderRequest(currentRequest){
     }
 }
 
-function toUppercase(text){
-    return text.charAt(0).toUpperCase() + text.slice(1);
-}
-
-function addHashtag(id){
-    return '#' + id;
-}
-
 async function getMoreData(){
     let url = `https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`
     let response = await fetch(url);
@@ -45,19 +37,52 @@ async function renderMore(currentRequest){
         let currentPokemonDetails = await pokeDetailsResponse.json();
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    loadMoreBtn.style.display = 'none';
 }
 
 async function renderDetails(pokemonId){
-    let url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-    let response = await fetch(url);
-    let currentRequest = await response.json();
-    let contentContainer = document.getElementById("pokedexDetails");
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+    const response = await fetch(url);
+    const currentRequest = await response.json();
+    const contentContainer = document.getElementById("pokedexDetails");
     contentContainer.innerHTML = pokedexDetailsTemplate(currentRequest);
     document.body.style.overflow = 'hidden';
+}
+
+function nextPokemon(pokemonId){
+    let nextPokemonId = pokemonId + 1;
+    if (nextPokemonId > 60) {
+        nextPokemonId = 60;
+    }
+    renderDetails(nextPokemonId);
+}
+
+function previousPokemon(pokemonId){
+    const previousPokemonId = pokemonId - 1;
+    renderDetails(previousPokemonId);
 }
 
 function closeOverlay(){
     const overlay = document.getElementById('overlay');
     overlay.style.display = 'none';
     document.body.style.overflow = '';
+}
+
+function toUppercase(text){
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function addHashtag(id){
+    return '#' + id;
+}
+
+function showHeight(height){
+    let m = height / 10;
+    return m.toFixed(2) + " m";
+}
+
+function showWeight(weight){
+    let kg = weight / 10;
+    return kg.toFixed(2) + " kg";
 }

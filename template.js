@@ -35,19 +35,18 @@ function pokedexDetailsTemplate(pokemon){
                     <img src="${pokemon.sprites.front_default}">
                 </div>
                 <div class="pokedexDetailsCardInfo">
-                    <div class="detailsMenu">
-                        <a href=""><b>About</b></a>
-                        <a href=""><b>Base Stats</b></a>
+                    <div class="details">
+                        <b>Details</b>
                     </div>
                     <div>
                         <table class="about">
                             <tr>
                                 <td>Height</td>
-                                <td>${pokemon.height}</td>
+                                <td>${showHeight(pokemon.height)}</td>
                             </tr>
                             <tr>
                                 <td>Weight</td>
-                                <td>${pokemon.weight}</td>
+                                <td>${showWeight(pokemon.weight)}</td>
                             </tr>
                         </table>
                         <table class="baseStats">
@@ -79,8 +78,8 @@ function pokedexDetailsTemplate(pokemon){
                     </div>
                 </div>
                 <div class="btn_container">
-                    <button class="btn_left">&#11164;</button>
-                    <button class="btn_right">&#11166;</button>
+                    <button onclick="previousPokemon(${pokemon.id})" class="btn_left">&#11164;</button>
+                    <button onclick="nextPokemon(${pokemon.id})" class="btn_right">&#11166;</button>
                 </div>
             </div>
         </div>`

@@ -118,18 +118,10 @@ main{
                 padding: 10px;
                 box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 
-                .detailsMenu{
+                .details{
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: center;
                     padding-bottom: 30px;
-                    a{
-                        color: black;
-                        
-                        &:hover{
-                            text-decoration: underline;
-                            cursor: pointer;
-                        }
-                    }
                 }
 
                 td{
