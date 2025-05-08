@@ -46,3 +46,11 @@ async function renderMore(currentRequest){
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
 }
+
+async function renderDetails(pokemonId){
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+    let response = await fetch(url);
+    let currentRequest = await response.json();
+    let contentContainer = document.getElementById("pokedexDetails");
+    contentContainer.innerHTML = pokedexDetailsTemplate(currentRequest);
+}
