@@ -52,27 +52,87 @@ function pokedexDetailsTemplate(pokemon){
                         <table class="baseStats">
                             <tr>
                                 <td>HP</td>
-                                <td>${pokemon.stats[0].base_stat}</td>
+                                <td class="td_width">${pokemon.stats[0].base_stat}</td>
+                                <td>
+                                    <div style="width: 100px; background-color: #ddd; height: 6px; border: grey solid 1px; border-radius: 5px; overflow: hidden;">
+                                        <div style="
+                                            width: ${pokemon.stats[0].base_stat / 2}px;
+                                            height: 100%;
+                                            background-color: ${pokemon.stats[0].base_stat <= 49 ? 'red' : 'green'};
+                                            transition: width 0.3s ease;">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Attack</td>
-                                <td>${pokemon.stats[1].base_stat}</td>
+                                <td class="td_width">${pokemon.stats[1].base_stat}</td>
+                                <td>
+                                    <div style="width: 100px; background-color: #ddd; height: 6px; border: grey solid 1px; border-radius: 5px; overflow: hidden;">
+                                        <div style="
+                                            width: ${pokemon.stats[1].base_stat / 2}px;
+                                            height: 100%;
+                                            background-color: ${pokemon.stats[1].base_stat <= 49 ? 'red' : 'green'};
+                                            transition: width 0.3s ease;">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Defense</td>
-                                <td>${pokemon.stats[2].base_stat}</td>
+                                <td class="td_width">${pokemon.stats[2].base_stat}</td>
+                                <td>
+                                    <div style="width: 100px; background-color: #ddd; height: 6px; border: grey solid 1px; border-radius: 5px; overflow: hidden;">
+                                        <div style="
+                                            width: ${pokemon.stats[2].base_stat / 2}px;
+                                            height: 100%;
+                                            background-color: ${pokemon.stats[2].base_stat <= 49 ? 'red' : 'green'};
+                                            transition: width 0.3s ease;">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Sp.Atk</td>
-                                <td>${pokemon.stats[3].base_stat}</td>
+                                <td class="td_width">${pokemon.stats[3].base_stat}</td>
+                                <td>
+                                    <div style="width: 100px; background-color: #ddd; height: 6px; border: grey solid 1px; border-radius: 5px; overflow: hidden;">
+                                        <div style="
+                                            width: ${pokemon.stats[3].base_stat / 2}px;
+                                            height: 100%;
+                                            background-color: ${pokemon.stats[3].base_stat <= 49 ? 'red' : 'green'};
+                                            transition: width 0.3s ease;">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Sp.Def</td>
-                                <td>${pokemon.stats[4].base_stat}</td>
+                                <td class="td_width">${pokemon.stats[4].base_stat}</td>
+                                <td>
+                                    <div style="width: 100px; background-color: #ddd; height: 6px; border: grey solid 1px; border-radius: 5px; overflow: hidden;">
+                                        <div style="
+                                            width: ${pokemon.stats[4].base_stat / 2}px;
+                                            height: 100%;
+                                            background-color: ${pokemon.stats[4].base_stat <= 49 ? 'red' : 'green'};
+                                            transition: width 0.3s ease;">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Speed</td>
-                                <td>${pokemon.stats[5].base_stat}</td>
+                                <td class="td_width">${pokemon.stats[5].base_stat}</td>
+                                <td>
+                                    <div style="width: 100px; background-color: #ddd; height: 6px; border: grey solid 1px; border-radius: 5px; overflow: hidden;">
+                                        <div style="
+                                            width: ${pokemon.stats[5].base_stat / 2}px;
+                                            height: 100%;
+                                            background-color: ${pokemon.stats[5].base_stat <= 50 ? 'red' : 'green'};
+                                            transition: width 0.3s ease;">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </table>
                     </div>
