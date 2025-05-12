@@ -1,3 +1,5 @@
+let currentPokemon = [];
+
 function init(){
     getData();
 }
@@ -54,18 +56,26 @@ async function renderDetails(pokemonId){
     document.body.style.overflow = 'hidden';
 }
 
+function searchPokemon(){
+
+}
+
 function startLoadingscreen(){
     const loadingscreen = document.getElementById("loadingscreen");
+    const inputField = document.querySelector("header input");
     loadingscreen.innerHTML = loadingscreenTemplate();
     loadingscreen.style.display = "flex";
     document.body.style.overflow = "hidden";
+    inputField.disabled = true;
 }
 
 function stopLoadingscreen(){
     const loadingscreen = document.getElementById("loadingscreen");
+    const inputField = document.querySelector("header input");
     loadingscreen.innerHTML = "";
     loadingscreen.style.display = "none";
     document.body.style.overflow = "auto";
+    inputField.disabled = false;
 }
 
 function nextPokemon(pokemonId){

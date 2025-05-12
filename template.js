@@ -148,13 +148,13 @@ function pokedexDetailsTemplate(pokemon){
 function loadingscreenTemplate(){
     return /*html*/`
         <div class="loadingContainer">
-            <svg class="loadingAnimation" viewBox="0 0 100 100" width="80" height="80">
-            <circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="none" />
-            <line x1="5" y1="50" x2="40" y2="50" stroke="black" stroke-width="5" />
-            <line x1="60" y1="50" x2="95" y2="50" stroke="black" stroke-width="5" />
-            <circle cx="50" cy="50" r="10" stroke="black" stroke-width="5" fill="none" />
-        </svg>
-        <p class="loading-text">Loading ...</p>
+            <svg class="loadingAnimation" viewBox="0 0 100 100" width="160" height="160">
+                <circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="none" />
+                <line x1="5" y1="50" x2="40" y2="50" stroke="black" stroke-width="5" />
+                <line x1="60" y1="50" x2="95" y2="50" stroke="black" stroke-width="5" />
+                <circle cx="50" cy="50" r="10" stroke="black" stroke-width="5" fill="none" />
+            </svg>
+            <p class="loading-text">Loading ...</p>
         </div>
     `;
 }
