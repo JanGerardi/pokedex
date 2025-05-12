@@ -1,4 +1,4 @@
-let currentPokemons = [];
+const currentPokemons = [];
 
 function init(){
     getData();
@@ -6,20 +6,20 @@ function init(){
 
 async function getData(){
     startLoadingscreen();
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=30&offset=0`
-    let response = await fetch(url);
-    let currentRequest = await response.json();
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=30&offset=0`
+    const response = await fetch(url);
+    const currentRequest = await response.json();
     renderRequest(currentRequest);
 }
 
 async function renderRequest(currentRequest){
-    let currentObject = currentRequest.results;
-    let contentContainer = document.getElementById("pokedex");
+    const currentObject = currentRequest.results;
+    const contentContainer = document.getElementById("pokedex");
     contentContainer.innerHTML = "";
     for (let i = 0; i < 30; i++) {
         const currentPokemon = currentObject[i];
-        let pokeDetailsResponse = await fetch(currentPokemon.url);
-        let currentPokemonDetails = await pokeDetailsResponse.json();
+        const pokeDetailsResponse = await fetch(currentPokemon.url);
+        const currentPokemonDetails = await pokeDetailsResponse.json();
         currentPokemons.push(currentPokemonDetails);
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
@@ -28,19 +28,19 @@ async function renderRequest(currentRequest){
 
 async function getMoreData(){
     startLoadingscreen();
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`
-    let response = await fetch(url);
-    let currentRequest = await response.json();
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`
+    const response = await fetch(url);
+    const currentRequest = await response.json();
     renderMore(currentRequest);
 }
 
 async function renderMore(currentRequest){
-    let currentObject = currentRequest.results;
-    let contentContainer = document.getElementById("pokedex");
+    const currentObject = currentRequest.results;
+    const contentContainer = document.getElementById("pokedex");
     for (let i = 30; i < 60; i++) {
         const currentPokemon = currentObject[i];
-        let pokeDetailsResponse = await fetch(currentPokemon.url);
-        let currentPokemonDetails = await pokeDetailsResponse.json();
+        const pokeDetailsResponse = await fetch(currentPokemon.url);
+        const currentPokemonDetails = await pokeDetailsResponse.json();
         currentPokemons.push(currentPokemonDetails);
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
@@ -55,19 +55,37 @@ async function renderDetails(pokemonId){
     const currentRequest = await response.json();
     const contentContainer = document.getElementById("pokedexDetails");
     contentContainer.innerHTML = pokedexDetailsTemplate(currentRequest);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 }
 
 function searchPokemon(){
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const contentContainer = document.getElementById("pokedex");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
     contentContainer.innerHTML = "";
     if (searchInput.length >= 3) {
         const filteredPokemons = currentPokemons.filter(pokemon => pokemon.name.startsWith(searchInput));
         contentContainer.innerHTML = filteredPokemons.map(pokemon => pokedexTemplate(pokemon)).join('');
+        loadMoreBtn.style.display = "none";
     } else {
         contentContainer.innerHTML = currentPokemons.map(pokemon => pokedexTemplate(pokemon)).join('');
+        hideBtn(currentPokemons);
     }
+}
+
+function searchHint() {
+    const hint = document.getElementById("searchHint");
+    const input = document.getElementById("searchInput");
+    if (input.value.length < 3) {
+        hint.style.visibility = "visible";
+    } else {
+        hint.style.visibility = "hidden";
+    }
+}
+
+function hideHint(){
+    const hint = document.getElementById("searchHint");
+    hint.style.visibility = "hidden";
 }
 
 function startLoadingscreen(){
@@ -91,13 +109,16 @@ function stopLoadingscreen(){
 function nextPokemon(pokemonId){
     let nextPokemonId = pokemonId + 1;
     if (nextPokemonId > 60) {
-        nextPokemonId = 60;
+        nextPokemonId = 1;
     }
     renderDetails(nextPokemonId);
 }
 
 function previousPokemon(pokemonId){
-    const previousPokemonId = pokemonId - 1;
+    let previousPokemonId = pokemonId - 1;
+    if (previousPokemonId < 1) {
+        previousPokemonId = 60;
+    }
     renderDetails(previousPokemonId);
 }
 
@@ -116,11 +137,21 @@ function addHashtag(id){
 }
 
 function showHeight(height){
-    let m = height / 10;
+    const m = height / 10;
     return m.toFixed(2) + " m";
 }
 
 function showWeight(weight){
-    let kg = weight / 10;
+    const kg = weight / 10;
     return kg.toFixed(2) + " kg";
+}
+
+function hideBtn(currentPokemons){
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    
+        if (currentPokemons.length <= 30) {
+            loadMoreBtn.style.display = "block";
+        } else {
+            loadMoreBtn.style.display = "none";
+        }
 }
