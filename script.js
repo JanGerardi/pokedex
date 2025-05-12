@@ -3,10 +3,11 @@ function init(){
 }
 
 async function getData(){
+    startLoadingscreen();
     let url = `https://pokeapi.co/api/v2/pokemon?limit=30&offset=0`
     let response = await fetch(url);
     let currentRequest = await response.json();
-    renderRequest(currentRequest)
+    renderRequest(currentRequest);
 }
 
 async function renderRequest(currentRequest){
@@ -19,13 +20,15 @@ async function renderRequest(currentRequest){
         let currentPokemonDetails = await pokeDetailsResponse.json();
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
+    stopLoadingscreen();
 }
 
 async function getMoreData(){
+    startLoadingscreen();
     let url = `https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`
     let response = await fetch(url);
     let currentRequest = await response.json();
-    renderMore(currentRequest)
+    renderMore(currentRequest);
 }
 
 async function renderMore(currentRequest){
@@ -39,6 +42,7 @@ async function renderMore(currentRequest){
     }
     const loadMoreBtn = document.getElementById("loadMoreBtn");
     loadMoreBtn.style.display = 'none';
+    stopLoadingscreen();
 }
 
 async function renderDetails(pokemonId){
@@ -48,6 +52,20 @@ async function renderDetails(pokemonId){
     const contentContainer = document.getElementById("pokedexDetails");
     contentContainer.innerHTML = pokedexDetailsTemplate(currentRequest);
     document.body.style.overflow = 'hidden';
+}
+
+function startLoadingscreen(){
+    const loadingscreen = document.getElementById("loadingscreen");
+    loadingscreen.innerHTML = loadingscreenTemplate();
+    loadingscreen.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function stopLoadingscreen(){
+    const loadingscreen = document.getElementById("loadingscreen");
+    loadingscreen.innerHTML = "";
+    loadingscreen.style.display = "none";
+    document.body.style.overflow = "auto";
 }
 
 function nextPokemon(pokemonId){

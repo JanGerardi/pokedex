@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="colors.css">
@@ -13,12 +13,17 @@
 <body onload="init()">
 
     <header>
-
+        <div class="logo">
+            <img src="img/favicon.png">
+            <h1>Pokédex</h1>
+        </div>
+        <input type="text">
     </header>
 
     <main>
         <div id="pokedex"></div>
         <div id="pokedexDetails"></div>
+        <div id="loadingscreen"></div>
         <button id="loadMoreBtn" onclick="getMoreData()">More Pokemon ...</button>
     </main>
 
