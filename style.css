@@ -35,10 +35,6 @@ header{
     top: 0;
     z-index: 99;
 
-    img{
-        height: 40px;
-    }
-
     .logo{
         display: flex;
         justify-content: center;
@@ -46,13 +42,29 @@ header{
         padding-left: 20px;
         gap: 10px;
         color: white;
+
+        @media(max-width: 460px){
+            h1{
+                display: none;
+            }
+        }
+
+        img{
+        height: 40px;
+        }
     }
 
     input{
         height: 30px;
+        width: 200px;
         outline: none;
         font-size: 1.2rem;
         padding-left: 5px;
+
+        @media (max-width: 460px){
+        width: 170px;
+        font-size: 1rem;
+        }
     }
 }
 
@@ -84,6 +96,13 @@ main{
             margin: 5px;
             transition: transform 0.2s ease;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+            @media (max-width: 921px){
+                width: 180px;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin: 2px;
+            }
         
             &:hover{
                 cursor: pointer;

@@ -1,4 +1,4 @@
-let currentPokemon = [];
+let currentPokemons = [];
 
 function init(){
     getData();
@@ -20,6 +20,7 @@ async function renderRequest(currentRequest){
         const currentPokemon = currentObject[i];
         let pokeDetailsResponse = await fetch(currentPokemon.url);
         let currentPokemonDetails = await pokeDetailsResponse.json();
+        currentPokemons.push(currentPokemonDetails);
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
     stopLoadingscreen();
@@ -40,6 +41,7 @@ async function renderMore(currentRequest){
         const currentPokemon = currentObject[i];
         let pokeDetailsResponse = await fetch(currentPokemon.url);
         let currentPokemonDetails = await pokeDetailsResponse.json();
+        currentPokemons.push(currentPokemonDetails);
         contentContainer.innerHTML += pokedexTemplate(currentPokemonDetails);
     }
     const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -57,7 +59,15 @@ async function renderDetails(pokemonId){
 }
 
 function searchPokemon(){
-
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    const contentContainer = document.getElementById("pokedex");
+    contentContainer.innerHTML = "";
+    if (searchInput.length >= 3) {
+        const filteredPokemons = currentPokemons.filter(pokemon => pokemon.name.startsWith(searchInput));
+        contentContainer.innerHTML = filteredPokemons.map(pokemon => pokedexTemplate(pokemon)).join('');
+    } else {
+        contentContainer.innerHTML = currentPokemons.map(pokemon => pokedexTemplate(pokemon)).join('');
+    }
 }
 
 function startLoadingscreen(){
